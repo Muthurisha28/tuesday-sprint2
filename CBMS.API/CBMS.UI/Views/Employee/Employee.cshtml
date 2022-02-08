@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CBMS.Entity.Model.Employee>
+
+
+<div class="row">
+    <div class="col-12">
+        <h3>Employee</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>EMPLOYEE ID </th>
+                    <th>EMPLOYEE NAME</th>
+                    <th>EMPLOYEE TYPE</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.empId</td>
+                        <td>@employee.empName</td>
+                        <td>@employee.empType</td>
+                        <td><a asp-controller="Employee" asp-action="EditEmployee" asp-route-empId="@employee.empId">Edit</a></td>
+                        <td><a asp-controller="Employee" asp-action="DeleteEmployee" asp-route-empId="@employee.empId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

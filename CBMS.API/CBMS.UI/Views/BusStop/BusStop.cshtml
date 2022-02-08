@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CBMS.Entity.Model.BusStop>
+
+
+<div class="row">
+    <div class="col-12">
+        <h3>BusStop</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>busStopNo</th>
+                    <th>stopName</th>
+                    <th>arrivalTime</th>
+                    <th>depatureTime</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var busStop in Model)
+                {
+                    <tr>
+                        <td>@busStop.busStopNo</td>
+                        <td>@busStop.stopName</td>
+                        <td>@busStop.arrivalTime</td>
+                        <td>@busStop.depatureTime</td>
+                        <td><a asp-controller="BusStop" asp-action="EditBusStop" asp-route-busNo="@busStop.busStopNo">Edit</a></td>
+                        <td><a asp-controller="BusStop" asp-action="DeleteBusStop" asp-route-busNo="@busStop.busStopNo">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

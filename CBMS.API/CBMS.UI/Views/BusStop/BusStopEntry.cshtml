@@ -1,0 +1,40 @@
+﻿@model CBMS.Entity.Model.BusStop
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<form method="post" enctype="multipart/form-data">
+
+    <div class="h2">
+        BUS STOP ENTRY
+    </div>
+    <div class="form-group">
+        <label>Stop Name</label>
+        <input type="text" asp-for="stopName" class="form-control" placeholder="enter stopName " required />
+    </div>
+    <div class="form-group">
+        <label>Arrival Time</label>
+        <input type="text" asp-for="arrivalTime" class="form-control" placeholder="enter arrivalTime" required />
+    </div>
+    <div class="form-group">
+        <label>depature Time</label>
+        <input type="text" asp-for="depatureTime" class="form-control" placeholder="enter depatureTime" required />
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div> }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>}
+</form>
+
+<div>
+    <a asp-controller="BusStop" asp-action="BusStop">Back to List</a>
+</div>

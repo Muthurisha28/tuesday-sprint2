@@ -1,0 +1,36 @@
+﻿@model CBMS.Entity.Model.Employee
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<form method="post" enctype="multipart/form-data">
+
+    <div class="h2">
+        Employee ENTRY
+    </div>
+    <div class="form-group">
+        <label>Employee Name</label>
+        <input type="text" asp-for="empName" class="form-control" placeholder="enter empName " required />
+    </div>
+    <div class="form-group">
+        <label>Employee Type</label>
+        <input type="text" asp-for="empType" class="form-control" placeholder="enter empType" required />
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+<div class="alert alert-success">
+    @ViewBag.message
+</div> }
+else if (ViewBag.status == "Error")
+{
+<div class="alert alert-danger">
+    @ViewBag.message
+</div>}
+</form>
+
+<div>
+    <a asp-controller="Employee" asp-action="EmployeeEntry">Back to List</a>
+</div>

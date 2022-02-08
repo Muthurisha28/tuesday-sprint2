@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CBMS.Entity.Model.Trip>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="h2">
+            TRIP DETAILS        </div>
+
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>TRIP ID </th>
+                    <th>TRIP COUNT</th>
+                 
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var trip in Model)
+                {
+                    <tr>
+                        <td>@trip.tripId</td>
+                        <td>@trip.tripCount</td>
+                       
+                        <td><a asp-controller="Trip" asp-action="EditTrip" asp-route-tripId="@trip.tripId">Edit</a></td>
+                        <td><a asp-controller="Trip" asp-action="DeleteTrip" asp-route-tripId="@trip.tripId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
